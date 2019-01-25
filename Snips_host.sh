@@ -23,6 +23,7 @@ sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo npm install -g snips-sam
+sam install assistant -i proj_Gq6PddXolo7
 
 # Install NPM
 # wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | sudo bash;
@@ -43,8 +44,10 @@ cd ~/
 
 #Prepare for add satellites https://github.com/Psychokiller1888/satConnect
 cd ~/
-git clone https://github.com/Psychokiller1888/satConnect.git
+@git clone https://github.com/Psychokiller1888/satConnect.git
 cd satConnect
 sudo pip install -r requirements.txt
-#sudo python server.py --remove-backup
+sudo python server.py --remove-backup
 cd ~/
+
+
