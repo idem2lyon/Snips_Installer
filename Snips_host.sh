@@ -69,3 +69,4 @@ sudo python server.py --remove-backup
 cd ~/
 
 
+sudo reboot
