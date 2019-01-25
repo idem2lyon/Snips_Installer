@@ -40,6 +40,8 @@ wget https://gist.githubusercontent.com/Psychokiller1888/a9826f92c5a3c5d03f34d18
 sudo chmod +x slc_download.sh
 sudo ./slc_download.sh 1 1 1
 #sudo ./snipsLedControl_v1.7/installers/respeakers.sh
+sudo apt-get install -y i2c-tools
+sudo systemctl restart seeed-voicecard
 cd ~/
 
 #Prepare for add satellites https://github.com/Psychokiller1888/satConnect
