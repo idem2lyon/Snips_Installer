@@ -14,7 +14,7 @@ sudo apt-get install -y snips-watch
 wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | sudo bash;
 sudo apt update && sudo apt dist-upgrade -y
 bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered) y y
-curl -L https://npmjs.com/install.sh | sudo sh
+# curl -L https://npmjs.com/install.sh | sudo sh
 sudo npm install -g snips-sam
 
 #Prepare for add satellites https://github.com/Psychokiller1888/satConnect
