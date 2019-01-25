@@ -44,7 +44,7 @@ sam connect 127.0.0.1
 sam init
 sam login
 sam install assistant -i proj_OV72121Mgoz
-sam sam sound-feedback on
+sam sound-feedback on
 
 # Install NPM
 # wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | sudo bash;
