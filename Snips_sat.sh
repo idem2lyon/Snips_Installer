@@ -1,4 +1,3 @@
-
 #Install Snips Audio Server 
 sudo apt-get update
 sudo apt-get install -y dirmngr
