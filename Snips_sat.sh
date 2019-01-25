@@ -50,3 +50,5 @@ git clone https://github.com/Psychokiller1888/satConnect.git
 cd satConnect
 sudo python connect.py
 cd ~/
+
+sudo reboot
