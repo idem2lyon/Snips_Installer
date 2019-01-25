@@ -15,7 +15,8 @@ sudo apt-get install -y snips-platform-voice
 sudo apt-get install -y snips-watch
 
 # Python pip & virtualenv install
-sudo apt-get install python-pip
+sudo apt-get install -y python-pip
+sudo apt-get install -y python-virtualenv
 sudo pip install --upgrade virtualenv
 virtualenv --python=/usr/bin/python2.7 snips
 
