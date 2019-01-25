@@ -4,7 +4,7 @@ Install SNIPS on a new Raspberry
 ### Installation
 Main Host
 ```
-wget -O - https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/Snips_host.sh | sudo bash;
+bash <(curl -sL https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/Snips_host.sh.sh)
 ```
 
 Satellites
