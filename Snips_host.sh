@@ -40,7 +40,6 @@ sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
 sudo npm install -g snips-sam
-sam connect Salon
 sam init
 sam install assistant -i proj_OV72121Mgoz
 sam sam sound-feedback on
