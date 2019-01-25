@@ -1,6 +1,7 @@
 #Install Snips Plateform 
 sudo apt-get update
 sudo apt-get install -y dirmngr
+sudo apt-get install -y build-essential
 sudo apt-get install -y raspberrypi-kernel-headers
 #sudo apt-cache policy lsb-release
 sudo apt-get install lsb-release
