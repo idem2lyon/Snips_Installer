@@ -62,7 +62,7 @@ cd ~/
 
 # Prepare for add satellites https://github.com/Psychokiller1888/satConnect
 cd ~/
-@git clone https://github.com/Psychokiller1888/satConnect.git
+git clone https://github.com/Psychokiller1888/satConnect.git
 cd satConnect
 sudo pip install -r requirements.txt
 sudo python server.py --remove-backup
