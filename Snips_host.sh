@@ -14,6 +14,11 @@ sudo apt-get update
 sudo apt-get install -y snips-platform-voice
 sudo apt-get install -y snips-watch
 
+# Python pip & virtualenv install
+sudo apt-get install python-pip
+sudo pip install --upgrade virtualenv
+virtualenv --python=/usr/bin/python2.7 snips
+
 #Install SAM
 sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
