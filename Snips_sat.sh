@@ -1,10 +1,13 @@
-#Install Snips Audio Server 
+#Dependances
 sudo apt-get update
 sudo apt-get install -y dirmngr
 sudo apt-get install -y build-essential
 sudo apt-get install -y raspberrypi-kernel-headers
+sudo apt-get install duplicity #https://blog.rom1v.com/2013/08/duplicity-des-backups-incrementaux-chiffres/
 #sudo apt-cache policy lsb-release
 sudo apt-get install lsb-release
+
+#Install Snips Plateform 
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
 sudo apt-get update
