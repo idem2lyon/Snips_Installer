@@ -21,6 +21,7 @@ cd ~/
 
 # Install Sound-Card & Drivers from : https://github.com/Psychokiller1888/snipsLedControl/
 cd ~/
+wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/.asoundrc
 wget https://gist.githubusercontent.com/Psychokiller1888/a9826f92c5a3c5d03f34d182fda1ce4c/raw/e24882e8997730dcf7a308e303b3b88001dbbfa1/slc_download.sh
 sudo chmod +x slc_download.sh
 sudo ./slc_download.sh
