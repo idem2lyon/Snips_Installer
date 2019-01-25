@@ -23,8 +23,8 @@ sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo npm install -g snips-sam
-sam connect Salon
-sam sam sound-feedback on
+sam connect 127.0.0.1
+sam sound-feedback on
 
 # Install NPM
 # wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | sudo bash;
