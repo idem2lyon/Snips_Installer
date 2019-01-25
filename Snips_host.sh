@@ -1,6 +1,7 @@
 #Install Snips Plateform 
 sudo apt-get update
 sudo apt-get install -y dirmngr
+sudo apt-get install -y raspberrypi-kernel-headers
 sudo apt-cache policy lsb-release
 sudo apt-get install lsb-release
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
@@ -10,10 +11,7 @@ sudo apt-get install -y snips-platform-voice
 sudo apt-get install -y snips-watch
 
 # Install NPM
-wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | sudo bash;
-sudo apt update && sudo apt dist-upgrade -y
-bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered) -y
-curl -L https://npmjs.com/install.sh | sudo sh
+#curl -L https://npmjs.com/install.sh | sudo sh
 sudo npm install -g snips-sam
 
 #Prepare for add satellites https://github.com/Psychokiller1888/satConnect
@@ -30,5 +28,4 @@ wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/.asoundr
 wget https://gist.githubusercontent.com/Psychokiller1888/a9826f92c5a3c5d03f34d182fda1ce4c/raw/e24882e8997730dcf7a308e303b3b88001dbbfa1/slc_download.sh
 sudo chmod +x slc_download.sh
 sudo ./slc_download.sh 1 3 1
-sudo ./snipsLedControl_v1.7/installers/respeakers.sh
 cd ~/
