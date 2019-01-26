@@ -51,7 +51,7 @@ sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
 sudo npm install -g snips-sam
-sam connect 127.0.0.1
+sam connect localhost
 sam init
 sam login
 sam install assistant -i proj_985YN8Ndgr
