@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get install -y snips-audio-server
 sudo apt-get install -y snips-watch
 
-#Install SAM
+#Install NodeJS + NPM : https://michaelborn.me/entry/installing-node-js-on-raspberry-pi-a
 if $(uname -m | grep -Eq ^armv6); then
 	  #NODE="$(curl -sL https://nodejs.org/dist/latest | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
 	  #wget https://nodejs.org/dist/latest/$NODE
@@ -32,6 +32,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  sudo apt-get install -y nodejs
 fi
 
+#Install SAM
 sudo apt-get update
 sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
