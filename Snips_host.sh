@@ -46,7 +46,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  #NODE="$(curl -sL https://nodejs.org/dist/latest | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
 	  #wget https://nodejs.org/dist/latest/$NODE
 	  NODE="$(curl -sL https://nodejs.org/dist/latest-v8.x | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
-	  wget https://nodejs.org/dist/latest/$NODE
+	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
 	  ls -l
