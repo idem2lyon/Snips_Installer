@@ -16,9 +16,22 @@ sudo apt-get install -y snips-audio-server
 sudo apt-get install -y snips-watch
 
 #Install SAM
-sudo apt-get install curl
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs
+if $(uname -m | grep -Eq ^armv6); then
+	  #NODE="$(curl -sL https://nodejs.org/dist/latest | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
+	  #wget https://nodejs.org/dist/latest/$NODE
+	  NODE="$(curl -sL https://nodejs.org/dist/latest-v8.x | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
+	  wget https://nodejs.org/dist/latest/$NODE
+	  tar -xvf $NODE
+	  cd ${NODE%%.tar*}/
+	  ls -l
+	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/node /usr/local/bin/nodejs
+	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
+  else
+	  sudo apt-get install curl
+	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+	  sudo apt-get install -y nodejs
+fi
+
 sudo apt-get update
 sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
