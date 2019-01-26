@@ -15,6 +15,17 @@ sudo apt-get update
 sudo apt-get install -y snips-platform-voice
 sudo apt-get install -y snips-watch
 
+# Snips MyChef
+sudo pip install spidev
+sudo pip install paho-mqtt
+git clone https://github.com/Psychokiller1888/MyChef.git
+sudo rm -rf /usr/share/snips/assistant
+sudo mv MyChef/mychef.service /etc/systemd/system
+sudo mv MyChef/assistants/assistant_fr /usr/share/snips/assistant
+sudo systemctl restart "snips-*"
+sudo systemctl start mychef
+sudo systemctl enable mychef
+
 # Python pip & virtualenv install
 sudo apt-get install -y python-pip
 sudo apt-get install -y python-virtualenv
@@ -43,7 +54,7 @@ sudo npm install -g snips-sam
 sam connect 127.0.0.1
 sam init
 sam login
-sam install assistant -i proj_OV72121Mgoz
+sam install assistant -i proj_985YN8Ndgr
 sam sound-feedback on
 
 # Install NPM
