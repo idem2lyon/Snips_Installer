@@ -32,16 +32,7 @@ sudo apt-get install -y python-virtualenv
 sudo pip install --upgrade virtualenv
 virtualenv --python=/usr/bin/python2.7 snips
 
-# Install Node.js 8.x LTS Carbon and npm
-sudo apt-get install -y gcc g++ make
-sudo apt-get install -y nodejs
-
-# Install the Yarn package manager
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install -y yarn
-
-# Install SAM
+#Install NodeJS + NPM : https://michaelborn.me/entry/installing-node-js-on-raspberry-pi-a
 if $(uname -m | grep -Eq ^armv6); then
 	  #NODE="$(curl -sL https://nodejs.org/dist/latest | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
 	  #wget https://nodejs.org/dist/latest/$NODE
@@ -53,11 +44,19 @@ if $(uname -m | grep -Eq ^armv6); then
 	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/node /usr/local/bin/nodejs
 	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
   else
+  	  # Install Node.js 8.x LTS Carbon and npm
+	  sudo apt-get install -y gcc g++ make
 	  sudo apt-get install curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 	  sudo apt-get install -y nodejs
 fi
 
+# Install the Yarn package manager
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install -y yarn
+
+#Install SAM
 sudo apt-get update
 sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
