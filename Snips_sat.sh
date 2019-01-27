@@ -28,6 +28,10 @@ if $(uname -m | grep -Eq ^armv6); then
 	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/node /usr/local/bin/nodejs
 	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
 	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/npm /usr/local/bin/npm
+	  sudo ln -s /usr/local/bin/nodejs /usr/bin/nodejs
+	  sudo ln -s /usr/local/bin/node /usr/bin/node
+	  sudo ln -s /usr/local/bin/npm /usr/bin/npm
+	  
   else
 	  sudo apt-get install curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
