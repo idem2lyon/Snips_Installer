@@ -49,6 +49,17 @@ sam sound-feedback on
 # curl -L https://npmjs.com/install.sh | sudo sh
 # sudo npm install -g snips-sam
 
+# Install Gladys-Bluetooth
+cd ~/
+npm install -g pm2
+git clone https://github.com/gladysassistant/gladys-bluetooth
+cd gladys-bluetooth
+rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
+yarn install
+npm install
+sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+pm2 start /home/pi/gladys-bluetooth/app.js --name gladys-bluetooth
+
 # Install Sound-Card & Drivers from : https://github.com/Psychokiller1888/snipsLedControl/
 cd ~/
 wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/.asoundrc
