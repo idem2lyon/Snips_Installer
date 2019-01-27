@@ -60,8 +60,10 @@ cd gladys-bluetooth
 rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
 yarn install
 npm install
+pm2 startup
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 pm2 start /home/pi/gladys-bluetooth/app.js --name gladys-bluetooth
+pm2 save
 
 # Install Sound-Card & Drivers from : https://github.com/Psychokiller1888/snipsLedControl/
 cd ~/
