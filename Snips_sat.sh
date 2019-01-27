@@ -24,7 +24,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
-	  sudo sudo cp -R * /usr/local/
+	  sudo mv -R * /usr/local/
 	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
 	 # sudo ln -s /usr/local/bin/nodejs /usr/bin/nodejs
 	 # sudo ln -s /usr/local/bin/node /usr/bin/node
