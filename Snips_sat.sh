@@ -23,9 +23,10 @@ if $(uname -m | grep -Eq ^armv6); then
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
-	  ls -l
+	  sudo mv ~/node-v8.15.0-linux-armv6l/ /usr/src/node-v8.15.0-linux-armv6l/
 	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/node /usr/local/bin/nodejs
 	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
+	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/npm /usr/local/bin/npm
   else
 	  sudo apt-get install curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
