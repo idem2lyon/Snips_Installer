@@ -61,6 +61,10 @@ sudo systemctl restart seeed-voicecard
 cd ~/
 
 #Prepare for add satellites https://github.com/Psychokiller1888/satConnect
+sudo apt-get install python-pip
+sudo pip install paho-mqtt
+sudo pip install pytoml
+
 cd ~/
 git clone https://github.com/Psychokiller1888/satConnect.git
 cd satConnect
