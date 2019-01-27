@@ -62,6 +62,7 @@ yarn install
 npm install
 pm2 startup
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+crontab -l | { cat; echo "@reboot sudo node ~/gladys-bluetooth/setup.js"; } | crontab -
 pm2 start /home/pi/gladys-bluetooth/app.js --name gladys-bluetooth
 pm2 save
 
