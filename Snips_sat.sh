@@ -24,13 +24,11 @@ if $(uname -m | grep -Eq ^armv6); then
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
-	  sudo mv ~/node-v8.15.0-linux-armv6l/ /usr/src/node-v8.15.0-linux-armv6l/
-	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/node /usr/local/bin/nodejs
+	  sudo sudo cp -R * /usr/local/
 	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
-	  sudo ln -s /usr/src/${NODE%%.tar*}/bin/npm /usr/local/bin/npm
-	  sudo ln -s /usr/local/bin/nodejs /usr/bin/nodejs
-	  sudo ln -s /usr/local/bin/node /usr/bin/node
-	  sudo ln -s /usr/local/bin/npm /usr/bin/npm
+	 # sudo ln -s /usr/local/bin/nodejs /usr/bin/nodejs
+	 # sudo ln -s /usr/local/bin/node /usr/bin/node
+	 # sudo ln -s /usr/local/bin/npm /usr/bin/npm
 	  
   else
 	  sudo apt-get install -y curl
