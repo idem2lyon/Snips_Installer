@@ -2,6 +2,7 @@
 sudo apt-get update
 sudo apt-get install -y build-essential
 sudo apt-get install -y raspberrypi-kernel-headers
+sudo apt-get install -y dirmngr apt-transport-https
 sudo apt-get install -y duplicity #https://blog.rom1v.com/2013/08/duplicity-des-backups-incrementaux-chiffres/
 sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-backup-raspberry-pi/
 #sudo apt-cache policy lsb-release
@@ -58,7 +59,6 @@ sudo apt-get update && sudo apt-get install -y yarn
 
 #Install SAM
 sudo apt-get update
-sudo apt-get install -y dirmngr apt-transport-https
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
