@@ -95,5 +95,8 @@ sudo pip install -r requirements.txt
 sudo python server.py --remove-backup
 cd ~/
 
+# Point d'accès Wifi dédié au réseau Domotique
+# https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
+wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
 
 sudo reboot
