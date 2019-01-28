@@ -97,6 +97,8 @@ cd ~/
 
 # Point d'accès Wifi dédié au réseau Domotique
 # https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
+# https://www.framboise314.fr/raspap-creez-votre-hotspot-wifi-avec-un-raspberry-pi-de-facon-express/
+
 wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
 
 sudo reboot
