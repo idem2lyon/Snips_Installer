@@ -38,7 +38,8 @@ sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
 sudo npm install snips-sam -g
-sam connect localhost
+sam sound-feedback on
+sam connect 10.3.141.1
 sam sound-feedback on
 
 # Install NPM
