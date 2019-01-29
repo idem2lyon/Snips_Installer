@@ -84,6 +84,7 @@ wget https://gist.githubusercontent.com/Psychokiller1888/a9826f92c5a3c5d03f34d18
 sudo chmod +x slc_download.sh
 sudo ./slc_download.sh 1 3 1
 #sudo ./snipsLedControl_v1.7/installers/respeakers.sh
+sudo cp -f .ascoundrc /etc/asound.conf
 cd ~/
 
 
@@ -98,7 +99,4 @@ cd ~/
 # Point d'accès Wifi dédié au réseau Domotique
 # https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
 # https://www.framboise314.fr/raspap-creez-votre-hotspot-wifi-avec-un-raspberry-pi-de-facon-express/
-
 wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
-
-sudo reboot
