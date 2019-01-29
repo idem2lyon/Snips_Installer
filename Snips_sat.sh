@@ -25,7 +25,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
-	  sudo mv -f * /usr/
+	  sudo mv -f ./${NODE%%.tar*}/bin/* /usr/bin/*
   else
 	  sudo apt-get install -y curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
