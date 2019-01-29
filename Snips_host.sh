@@ -101,4 +101,12 @@ cd ~/
 # Point d'accès Wifi dédié au réseau Domotique
 # https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
 # https://www.framboise314.fr/raspap-creez-votre-hotspot-wifi-avec-un-raspberry-pi-de-facon-express/
+
+# Création d'une sauvegarde du fichier de configuration WiFi
+sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.sav
+
+# Suppression du fichier de configuration WiFi pour retourner à une configuration vierge
+sudo cp /dev/null /etc/wpa_supplicant/wpa_supplicant.conf
+
+# Téléchargement et installation de RaspAP
 wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
