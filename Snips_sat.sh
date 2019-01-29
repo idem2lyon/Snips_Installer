@@ -24,7 +24,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  rm -rf $NODE*  
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
-	  cd ${NODE%%.tar*}/
+	  # cd ${NODE%%.tar*}/
 	  sudo mv -f ./${NODE%%.tar*}/bin/* /usr/bin/*
   else
 	  sudo apt-get install -y curl
