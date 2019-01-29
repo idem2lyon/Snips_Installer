@@ -51,9 +51,10 @@ sam sound-feedback on
 
 # Install Gladys-Bluetooth
 cd ~/
+sudo apt-get install -y git
 sudo npm install pm2 -g && sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
 git clone https://github.com/gladysassistant/gladys-bluetooth
-cd gladys-bluetooth
+cd gladys-bluetooth/
 rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
 yarn install
 npm install
