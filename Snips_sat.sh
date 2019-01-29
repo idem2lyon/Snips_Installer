@@ -21,15 +21,11 @@ if $(uname -m | grep -Eq ^armv6); then
 	  #NODE="$(curl -sL https://nodejs.org/dist/latest | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
 	  #wget https://nodejs.org/dist/latest/$NODE
 	  NODE="$(curl -sL https://nodejs.org/dist/latest-v8.x | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
+	  rm -rf $NODE*  
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE
 	  tar -xvf $NODE
 	  cd ${NODE%%.tar*}/
-	  sudo mv -R * /usr/local/
-	  sudo ln -s /usr/local/bin/nodejs /usr/local/bin/node
-	 # sudo ln -s /usr/local/bin/nodejs /usr/bin/nodejs
-	 # sudo ln -s /usr/local/bin/node /usr/bin/node
-	 # sudo ln -s /usr/local/bin/npm /usr/bin/npm
-	  
+	  sudo mv -f * /usr/
   else
 	  sudo apt-get install -y curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
