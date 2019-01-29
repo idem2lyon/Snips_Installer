@@ -85,6 +85,8 @@ sudo chmod +x slc_download.sh
 sudo ./slc_download.sh 1 3 1
 #sudo ./snipsLedControl_v1.7/installers/respeakers.sh
 sudo cp -f .ascoundrc /etc/asound.conf
+sudo apt-get install -y i2c-tools
+sudo systemctl restart seeed-voicecard
 cd ~/
 
 
