@@ -23,7 +23,7 @@ if $(uname -m | grep -Eq ^armv6); then
 	  NODE="$(curl -sL https://nodejs.org/dist/latest-v8.x | grep 'armv6l.tar.xz' | cut -d'"' -f2)"
 	  rm -rf $NODE*  
 	  wget https://nodejs.org/dist/latest-v8.x/$NODE &&  tar -xvf $NODE
-	  cd ${NODE%%.tar*}/ && sudo cp -R * /usr/local/ 
+	  cd ${NODE%%.tar*}/ && sudo cp -Rf * /usr/local/ 
 	  cd .. && rm -rf ${NODE%%.tar*}/
 	  cd ~/
   else
