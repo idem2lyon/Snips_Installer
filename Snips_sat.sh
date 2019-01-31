@@ -54,7 +54,9 @@ sam sound-feedback on
 # Install Gladys-Bluetooth
 cd ~/
 sudo apt-get install -y git
-sudo npm install pm2 -g && sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+sudo npm install pm2 -g
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+ls -I* ~/gladys && git clone https://github.com/GladysAssistant/gladys-data.git
 git clone https://github.com/gladysassistant/gladys-bluetooth
 cd gladys-bluetooth/
 rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
@@ -83,6 +85,7 @@ cd ~/
 sudo apt-get install python-pip
 sudo pip install paho-mqtt
 sudo pip install pytoml
+
 
 cd ~/
 git clone https://github.com/Psychokiller1888/satConnect.git
