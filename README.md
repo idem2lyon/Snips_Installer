@@ -1,5 +1,7 @@
 # Snips_Installer
 Install SNIPS on a new Raspberry
+https://www.framboise314.fr/raspbian-tout-un-tas-de-trucs/
+
 
 ### Installation
 Main Host
