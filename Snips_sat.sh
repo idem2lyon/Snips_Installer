@@ -8,7 +8,9 @@ sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-bac
 #sudo apt-cache policy lsb-release
 sudo apt-get install -y lsb-release
 
+
 #Install Snips Plateform 
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
@@ -56,7 +58,7 @@ sudo npm install pm2 -g && sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm
 git clone https://github.com/gladysassistant/gladys-bluetooth
 cd gladys-bluetooth/
 rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
-yarn install
+p install
 npm install
 pm2 startup
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
