@@ -6,12 +6,12 @@ https://www.framboise314.fr/raspbian-tout-un-tas-de-trucs/
 ### Installation
 Main Host
 ```
-bash <(curl -sL https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/Snips_host.sh)
+bash <(curl -sL https://raw.githubusercontent.com/joe-achim/Raspis_Installer/master/Snips_host.sh)
 ```
 
 Satellites
 ```
-bash <(curl -sL https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/Snips_sat.sh)
+bash <(curl -sL https://raw.githubusercontent.com/joe-achim/Raspis_Installer/master/Snips_sat.sh)
 ```
 
 ### Test
