@@ -32,6 +32,11 @@ if $(uname -m | grep -Eq ^armv6); then
 	  sudo apt-get install -y curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 	  sudo apt-get install -y nodejs
+	  crontab -l | { cat; echo "@reboot sudo node ~/gladys-bluetooth/setup.js"; } | crontab -
+	  sudo mkdir /media/freebox
+	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=TL8T5VQC,vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=TL8T5VQC,vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
+          sudo mkdir /_backup  
+	  sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=TL8T5VQC,vers=1.0 && crontab -l | { cat; echo "@reboot //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=TL8T5VQC,vers=1.0"; } | crontab -
 fi
 
 #Install SAM
