@@ -44,7 +44,7 @@ sudo apt-get update
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
-sudo npm install snips-sam -g
+sudo npm install -g snips-sam
 sam connect $HOSTNAME
 sam sound-feedback on
 
@@ -53,12 +53,13 @@ sam sound-feedback on
 # sudo apt update && sudo apt dist-upgrade -y
 # bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered) y y
 # curl -L https://npmjs.com/install.sh | sudo sh
-# sudo npm install snips-sam -g
+# sudo npm install -g snips-sam
 
 # Install Gladys-Bluetooth
 cd ~/
 sudo apt-get install -y git
-sudo npm install pm2 -g
+sudo npm install pm2 
+sudo npm install -g pm2
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
 ls -I* ~/gladys && git clone https://github.com/GladysAssistant/gladys-data.git
 git clone https://github.com/gladysassistant/gladys-bluetooth
