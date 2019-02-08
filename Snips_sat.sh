@@ -16,7 +16,7 @@ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 sudo apt-get update
 sudo apt-get install -y snips-audio-server
-sudo apt-get install -y snips-watch
+sudo apt-get install -y snips-watch screen
 
 #Install NodeJS + NPM : https://michaelborn.me/entry/installing-node-js-on-raspberry-pi-a
 if $(uname -m | grep -Eq ^armv6); then
@@ -45,8 +45,7 @@ sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
 sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455
 sudo npm install snips-sam -g
-sam sound-feedback on
-sam connect 10.3.141.1
+sam connect $HOSTNAME
 sam sound-feedback on
 
 # Install NPM
@@ -65,7 +64,7 @@ ls -I* ~/gladys && git clone https://github.com/GladysAssistant/gladys-data.git
 git clone https://github.com/gladysassistant/gladys-bluetooth
 cd gladys-bluetooth/
 rm config.js ; wget https://raw.githubusercontent.com/joe-achim/Snips_Installer/master/config.js
-p install
+
 npm install
 pm2 startup
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
