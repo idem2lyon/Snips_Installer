@@ -28,15 +28,20 @@ if $(uname -m | grep -Eq ^armv6); then
 	  cd ${NODE%%.tar*}/ && sudo cp -Rf * /usr/local/ 
 	  cd .. && rm -rf ${NODE%%.tar*}/
 	  cd ~/
+	  sudo mkdir /media/freebox && sudo chown pi /media
+	  sudo sshfs pi@gladys.local:/media/freebox /media/freebox -o password=raspberry && crontab -l | { cat; echo "@reboot sudo sshfs pi@gladys.local:/media/freebox /media/freebox -o password_stdin"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
+          sudo mkdir /_backup && sudo chown pi /_backup
+	  mount /media/freebox/_BACKUPS_RASPYS/$HOSTNAME /_backup -o password_stdin && crontab -l | { cat; echo "@reboot mount /media/freebox/_BACKUPS_RASPYS/$HOSTNAME /_backup"; } | crontab -
+	  
   else
 	  sudo apt-get install -y curl
 	  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 	  sudo apt-get install -y nodejs
-	  crontab -l | { cat; echo "@reboot sudo node ~/gladys-bluetooth/setup.js"; } | crontab -
-	  sudo mkdir /media/freebox
+	  #crontab -l | { cat; echo "@reboot sudo node ~/gladys-bluetooth/setup.js"; } | crontab -
+	  sudo mkdir /media/freebox && sudo chown pi /media/freebox
 	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
-          sudo mkdir /_backup  
-	  sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab -
+          sudo mkdir /_backup && sudo chown pi /_backup
+	  sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab -
 fi
 
 #Install SAM
@@ -58,9 +63,9 @@ sam sound-feedback on
 # Install Gladys-Bluetooth
 cd ~/
 sudo apt-get install -y git
-sudo npm install pm2 
-sudo npm install -g pm2
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+sudo npm i -g pm2 
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/
+pm2 startup systemd -u pi --hp /home/pi
 ls -I* ~/gladys && git clone https://github.com/GladysAssistant/gladys-data.git
 git clone https://github.com/gladysassistant/gladys-bluetooth
 cd gladys-bluetooth/
