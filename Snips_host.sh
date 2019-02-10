@@ -8,6 +8,13 @@ sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-bac
 #sudo apt-cache policy lsb-release
 sudo apt-get install lsb-release
 
+# Mount Freebox & Backup order
+	  sudo mkdir /media/freebox && sudo chown pi -R /media/freebox
+	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
+          sudo mkdir /_backup && sudo chown pi -R /_backup
+	  sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab -
+
+
 # Install Snips Plateform 
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
