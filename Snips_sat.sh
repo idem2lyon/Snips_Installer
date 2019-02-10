@@ -29,9 +29,10 @@ if $(uname -m | grep -Eq ^armv6); then
 	  cd .. && rm -rf ${NODE%%.tar*}/
 	  cd ~/
 	  sudo mkdir /media/freebox && sudo chown pi /media -R
-	  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa pi@10.3.141.1:/media/freebox /media/freebox && crontab -l | { cat; echo "@reboot  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa pi@10.3.141.1:/media/freebox /media/freebox # -o password_stdin"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
-          sudo mkdir /_backup && sudo chown pi /_backup -R
-	  mount /media/freebox/_BACKUPS_RASPYS/$HOSTNAME /_backup -o password_stdin && crontab -l | { cat; echo "@reboot mount /media/freebox/_BACKUPS_RASPYS/$HOSTNAME /_backup"; } | crontab -
+	  sudo sshfs -o allow_other,password_stdin pi@10.3.141.1:/media/freebox /media/freebox/ <<< raspberry && crontab -l | { cat; echo "@reboot sudo sshfs -o allow_other,password_stdin pi@10.3.141.1:/media/freebox /media/freebox/ <<< raspberry"; } | crontab - 
+	  sudo mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME && sudo chown pi /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
+          sudo mkdir /_backup && sudo chown pi -R /_backup
+	  sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup && crontab -l | { cat; echo "sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup"; } | crontab -
 	  
   else
 	  sudo apt-get install -y curl
@@ -40,8 +41,8 @@ if $(uname -m | grep -Eq ^armv6); then
 	  #crontab -l | { cat; echo "@reboot sudo node ~/gladys-bluetooth/setup.js"; } | crontab -
 	  sudo mkdir /media/freebox && sudo chown pi /media/freebox -R
 	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
-          sudo mkdir /_backup && sudo chown pi /_backup -R
-	  sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/_BACKUPS_RASPYS/$HOSTNAME /_backup -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab -
+          sudo mkdir /_backup && sudo chown pi -R /_backup
+	  sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/Salon/ /_backup && crontab -l | { cat; echo "sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/Salon/ /_backup"; } | crontab -
 fi
 
 #Install SAM
