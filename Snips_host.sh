@@ -12,8 +12,8 @@ sudo apt-get install lsb-release
 	  sudo mkdir /media/freebox && sudo chown pi -R /media/freebox
 	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
           sudo mkdir /_backup && sudo chown pi -R /_backup
-	  sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup && crontab -l | { cat; echo "sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup"; } | crontab -
-
+	  sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup && crontab -l | { cat; echo "@reboot sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup"; } | crontab -
+	  
 
 # Install Snips Plateform 
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
