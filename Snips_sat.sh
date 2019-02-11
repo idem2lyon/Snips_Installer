@@ -7,7 +7,7 @@ sudo apt-get install -y duplicity #https://blog.rom1v.com/2013/08/duplicity-des-
 sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-backup-raspberry-pi/
 #sudo apt-cache policy lsb-release
 sudo apt-get install -y lsb-release
-
+sudo apt-get install -y wicd-curses && sudo wicd-curses
 
 #Install Snips Plateform 
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
