@@ -100,6 +100,8 @@ sudo pip install pytoml
 
 
 cd ~/
+### Prévoir une session automatique pour lancer satConnect/server.py sur l'hôte, afin de permettre un appairage automatisé:
+## https://unix.stackexchange.com/a/266573
 git clone https://github.com/Psychokiller1888/satConnect.git
 cd satConnect
 sudo python connect.py
