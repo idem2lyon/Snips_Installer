@@ -24,17 +24,6 @@ sudo apt-get install -y snips-platform-voice
 sudo apt-get install -y snips-injection
 sudo apt-get install -y snips-watch
 
-# Snips MyChef
-sudo pip install spidev
-sudo pip install paho-mqtt
-git clone https://github.com/Psychokiller1888/MyChef.git
-sudo rm -rf /usr/share/snips/assistant
-sudo mv MyChef/mychef.service /etc/systemd/system
-sudo mv MyChef/assistants/assistant_fr /usr/share/snips/assistant
-sudo systemctl restart "snips-*"
-sudo systemctl start mychef
-sudo systemctl enable mychef
-
 # Python pip & virtualenv install
 sudo apt-get install -y python-pip
 sudo apt-get install -y python-virtualenv
@@ -65,6 +54,17 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install -y yarn
 
+# Snips MyChef
+pip install spidev
+pip install paho-mqtt
+# git clone https://github.com/Psychokiller1888/MyChef.git
+# sudo rm -rf /usr/share/snips/assistant
+# sudo mv MyChef/mychef.service /etc/systemd/system
+# sudo mv MyChef/assistants/assistant_fr /usr/share/snips/assistant
+sudo systemctl restart "snips-*"
+sudo systemctl start mychef
+sudo systemctl enable mychef
+
 #Install SAM
 sudo apt-get update
 sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
@@ -74,7 +74,8 @@ sudo npm install -g snips-sam
 sam connect localhost
 sam init
 sam login
-sam install assistant -i proj_985YN8Ndgr
+#sam install assistant -i proj_985YN8Ndgr
+sam install assistant -i proj_b3gZ5602NK2
 sam sound-feedback on
 
 # Install NPM
