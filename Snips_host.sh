@@ -118,6 +118,8 @@ cd ~/
 
 # ranformer son Raspberry Pi en routeur Wifi avec Hostapd
 # URL:> https://dadarevue.com/raspberry-pi-routeur-wifi-hotspot-hostapd/
+# URL:> https://doc.ubuntu-fr.org/hostapd#filtrage_mac
+# URL:> http://lea-linux.org/documentations/Point_d'acc%C3%A8s_s%C3%A9curis%C3%A9_par_hostAPd
 
 # Téléchargement et installation de RaspAP
 #wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
