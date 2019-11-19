@@ -8,12 +8,6 @@ sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-bac
 #sudo apt-cache policy lsb-release
 sudo apt-get install lsb-release
 
-# Mount Freebox & Backup order
-	  sudo mkdir /media/freebox && sudo chown pi -R /media/freebox
-	  sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0 && crontab -l | { cat; echo "@reboot sudo mount.cifs //freebox-server.local/SAMSUNG/ /media/freebox -o ip=192.168.0.254,user=freebox,password=[ChangeMe],vers=1.0"; } | crontab - && mkdir /media/freebox/_BACKUPS_RASPYS/$HOSTNAME
-          sudo mkdir /_backup && sudo chown pi -R /_backup
-	  sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup && crontab -l | { cat; echo "@reboot sudo mount -o bind /media/freebox/_BACKUPS_RASPYS/$HOSTNAME/ /_backup"; } | crontab -
-	  
 
 # Install Snips Plateform 
 sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
@@ -74,8 +68,7 @@ sudo npm install -g snips-sam
 sam connect localhost
 sam init
 sam login
-#sam install assistant -i proj_985YN8Ndgr
-sam install assistant -i proj_b3gZ5602NK2
+sam install assistant -i proj_1Xev0qqWkwO
 sam sound-feedback on
 
 # Install NPM
@@ -106,21 +99,3 @@ cd satConnect
 sudo pip install -r requirements.txt
 sudo python server.py --remove-backup
 cd ~/
-
-# Point d'accès Wifi dédié au réseau Domotique
-# https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
-# https://www.framboise314.fr/raspap-creez-votre-hotspot-wifi-avec-un-raspberry-pi-de-facon-express/
-
-# Création d'une sauvegarde du fichier de configuration WiFi
-#sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.sav
-
-# Suppression du fichier de configuration WiFi pour retourner à une configuration vierge
-#sudo cp /dev/null /etc/wpa_supplicant/wpa_supplicant.conf
-
-# ranformer son Raspberry Pi en routeur Wifi avec Hostapd
-# URL:> https://dadarevue.com/raspberry-pi-routeur-wifi-hotspot-hostapd/
-# URL:> https://doc.ubuntu-fr.org/hostapd#filtrage_mac
-# URL:> http://lea-linux.org/documentations/Point_d'acc%C3%A8s_s%C3%A9curis%C3%A9_par_hostAPd
-
-# Téléchargement et installation de RaspAP
-#wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
