@@ -1,6 +1,7 @@
+# 
+# wget -O - https://raw.githubusercontent.com/idem2lyon/Snips_Installer/master/Snips_sat.sh | sudo bash;
 #Dependances
 sudo apt-get update
-sudo apt-get install -y git
 sudo apt-get install -y build-essential
 sudo apt-get install -y raspberrypi-kernel-headers
 sudo apt-get install -y dirmngr apt-transport-https
