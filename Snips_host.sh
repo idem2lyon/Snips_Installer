@@ -1,5 +1,9 @@
 # Dependances
 sudo apt-get update
+sudo bash -c  'echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list'
+sudo apt-key adv --fetch-keys  https://debian.snips.ai/5FFCD0DEB5BA45CD.pub
+sudo apt-get update
+
 sudo apt-get install -y build-essential
 sudo apt-get install -y raspberrypi-kernel-headers
 sudo apt-get install -y dirmngr apt-transport-https
@@ -9,14 +13,18 @@ sudo apt-get install -y sshfs # https://codeandunicorns.com/duplicity-scpssh-bac
 sudo apt-get install lsb-release
 
 
+
 # Install Snips Plateform 
-sudo bash -c  'echo "deb   https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
-sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 sudo apt-get update
 sudo apt-get install -y snips-platform-voice
-sudo apt-get install -y snips-injection
+sudo apt-get install -y snips-platform-demo
+sudo apt-get install -y snips-tts
 sudo apt-get install -y snips-watch
+sudo apt-get install -y snips-template snips-skill-server
+#sudo apt-get install -y snips-injection
+## MOSQUITO
+sudo apt-get install mosquitto
+
 
 # Python pip & virtualenv install
 sudo apt-get install -y python-pip
